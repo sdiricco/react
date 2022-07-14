@@ -1,0 +1,88 @@
+@import '~antd/dist/antd.dark.less';
+@import '~antd/dist/antd.compact.less'; // Introduce the official compact less style entry file
+
+.mainContainer{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+    overflow: hidden;
+    background: #111111;
+
+}
+
+.logTerminal{
+    overflow: auto;
+
+}
+
+.logContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logHeader{
+    padding: 2px 4px 2px 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+}
+
+.upContainer{
+    padding: 16px;
+    height: 100%;
+    width: 100vw;
+}
+
+.downContainer{
+    height: 100%;
+    width: 100vw;
+    background-color: #111111;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.buttons{
+    margin: 16px 4px 0px 0px ;
+}
+
+.buttonGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.customHandle {
+    cursor: n-resize;
+    width: 100%;
+    height: 16px;
+    background-color: #111111;
+}
+  
+.customResizeBorder {
+    cursor: n-resize;
+    width: 100%;
+    height: 4px;
+
+}
+
+//ScrollBar
+::-webkit-scrollbar {
+    height: 6px;
+    width: 8px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

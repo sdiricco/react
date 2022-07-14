@@ -1,0 +1,87 @@
+{
+  "name": "@sdiricco/reactron-basic",
+  "version": "0.0.1",
+  "dependencies": {
+    "@ant-design/icons": "^4.6.3",
+    "@craco/craco": "^6.2.0",
+    "@electron/remote": "^1.0.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.16.13",
+    "craco-less": "^1.19.0",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-is-dev": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
+    "electron": "^11.2.1",
+    "electron-builder": "^22.9.1",
+    "electron-rebuild": "^3.1.1",
+    "prettier": "^2.2.1",
+    "wait-on": "^5.2.1"
+  },
+  "productName": "Reactron Boilerplate",
+  "description": "Basic react/electron boilerplate",
+  "main": "public/electronMain.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "electron:serve": "concurrently -k \"cross-env BROWSER=none npm run start\" \"npm run electron:start\"",
+    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/electronMain.js ",
+    "electron:start": "wait-on tcp:3000 && electron .",
+    "electron:rebuild:win": ".\\node_modules\\.bin\\electron-rebuild.cmd",
+    "electron:rebuild:linux": "./node_modules/.bin/electron-rebuild"
+  },
+  "build": {
+    "extends": null,
+    "appId": "reactronboilerplate",
+    "buildDependenciesFromSource": true,
+    "npmRebuild": false,
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "files": [
+      "dist/**/*",
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
